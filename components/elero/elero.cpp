@@ -493,8 +493,19 @@ bool Elero::send_command(t_elero_command *cmd) {
   this->msg_tx_[17] = ((cmd->blind_addr >> 16) & 0xff); // blind address
   this->msg_tx_[18] = ((cmd->blind_addr >> 8) & 0xff);
   this->msg_tx_[19] = ((cmd->blind_addr) & 0xff);
-  for(int i=0; i<10; i++)
-    this->msg_tx_[20 + i] = cmd->payload[i];
+  //for(int i=0; i<10; i++)
+  //  this->msg_tx_[20 + i] = cmd->payload[i];
+  this->msg_tx_[20] = (code & 0xff);
+  this->msg_tx_[21] = (code & 0xff);
+  this->msg_tx_[22] = cmd->payload[2]; //test
+  this->msg_tx_[23] = (code & 0xff);
+  this->msg_tx_[24] = (code & 0xff);
+  this->msg_tx_[25] = (code & 0xff);
+  this->msg_tx_[26] = (code & 0xff);
+  this->msg_tx_[27] = (code & 0xff);
+  this->msg_tx_[28] = (code & 0xff);
+  this->msg_tx_[29] = (code & 0xff);
+  
   this->msg_tx_[22] = ((code >> 8) & 0xff);
   this->msg_tx_[23] = (code & 0xff);
 

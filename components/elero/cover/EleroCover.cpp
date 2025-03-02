@@ -74,16 +74,16 @@ bool EleroCover::is_at_target() {
 void EleroCover::handle_commands(uint32_t now) {
   if((now - this->last_command_) > ELERO_DELAY_SEND_PACKETS) {
     if(this->commands_to_send_.size() > 0) {
-      this->command_.payload[0] = 0x00
-      this->command_.payload[1] = 0x00
-      this->command_.payload[2] = 0x00
-      this->command_.payload[3] = 0x00
-      this->command_.payload[4] = 0x00
-      this->command_.payload[5] = 0x00
-      this->command_.payload[6] = 0x00
-      this->command_.payload[7] = 0x00
-      this->command_.payload[8] = 0x00
-      this->command_.payload[9] = 0x00
+      this->command_.payload[0] = 0x00;
+      this->command_.payload[1] = 0x00;
+      this->command_.payload[2] = 0x00;
+      this->command_.payload[3] = 0x00;
+      this->command_.payload[4] = 0x00;
+      this->command_.payload[5] = 0x00;
+      this->command_.payload[6] = 0x00;
+      this->command_.payload[7] = 0x00;
+      this->command_.payload[8] = 0x00;
+      this->command_.payload[9] = 0x00;
       this->command_.payload[4] = this->commands_to_send_.front();
         
       if(this->parent_->send_command(&this->command_)) {
